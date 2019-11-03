@@ -1,0 +1,49 @@
+server:
+  port: ${PORT:8020}
+spring:
+  profiles:
+    active: dev
+  sevlet:
+    multipart:
+      max-file-size: 5000KB
+      max-request-size: 5000KB
+      enabled: true
+  application:
+    name: pizzaria-core
+  jackson:
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: true
+    dateFormat: yyyy-MM-dd
+    jodaDateTimeFormat: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT-03:00       
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://postgres-pizza/pizzaria}
+    username: ${DB_USER:pizza}
+    password: ${DB_PASSWORD:pizza}
+    hikari:
+      maximumPoolSize: 10
+      connectionTimeout: 60000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults : false
+           
+      
+flyway:
+  schemas: public      
+
+pizzaria-core:
+  baseUrl: ${BASE_URL:https://teste.com.br}
+  seguranca:
+    usuarioSistemaToken: ${USUARIO_SISTEMA_TOKEN:eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaXN0ZW1hIiwiY3JlYXRlZCI6MTU2NDQ1MDIzMjE3Niwicm9sZXMiOlsiUk9MRV9TSVNURU1BIl0sImlkIjoxfQ.3yJke6Y-PedvHvmGiIh19U3US8PL7gG3ac2zL_ws6tpc0q2frZVWdPOSsdip7mOeDhvjbeB_wuH7LcITOwoNeA} 
+    jwtTokenConfig:
+      segredo: ${JWT_SECRET:camara}
+      expiracao: 432000
+  api-info:
+    titulo: Pizzaria API
+    descricao: Documentação da API para acesso aos endpoints da pizzaria
+    versao: 1.0
+    pacote: br.com.pizzaria.core.api
+
