@@ -25,7 +25,7 @@
 		<modelMapper.version>1.1.0</modelMapper.version>
 		<apacheCommons.version>3.4</apacheCommons.version>
 		<swagger.version>2.7.0</swagger.version>
-		<swaggerUI.version>2.7.0</swaggerUI.version>
+		<swaggerUI.version>2.10.0</swaggerUI.version>
 		
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
 		<jacksonMapper.version>1.9.13</jacksonMapper.version>
